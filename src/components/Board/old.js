@@ -87,49 +87,6 @@
 //   }
 //
 //
-//   canKick2(mult1, mult2, inverseColor, X, Y) {
-//     return (
-//       this.isInArr( X+(1*mult1) , Y+(1*mult2),this.state[inverseColor])
-//       && !(this.isInArr( X+(2*mult1) , Y+(2*mult2), this.state.blue)
-//       && !(this.isInArr( X+(2*mult1) , Y+(2*mult2), this.state.red)
-//       && X+(2*mult1)<8
-//       && Y+(2*mult2))<8
-//       && X+(2*mult1)>0
-//       && Y+(2*mult2))>0
-//     )
-//   };
-//
-//   canKick(X,Y,color) {
-//     const inverseColor = color === 'red' ? 'blue' : 'red';
-//     const multiplArray = [[1,1],[-1,-1],[1,-1],[-1,1]];
-//
-//     return (
-//       multiplArray.some((el) => this.canKick2(el[0], el[1], inverseColor, X, Y))
-//     )
-//   };
-//
-//
-//   canMakeStep2(mult1, mult2, X, Y) {
-//     return (
-//      !(this.isInArr( X+(mult1) , Y+(mult2), this.state.blue))
-//       && !(this.isInArr( X+(mult1) , Y+(mult2), this.state.red))
-//     )
-//   };
-//   canMakeStep(X,Y) {
-//     const multiplArray = [[1,1],[-1,-1],[1,-1],[-1,1]];
-//
-//     return (
-//       multiplArray.some((el) => this.canMakeStep2(el[0], el[1], X, Y))
-//     )
-//   };
-//
-//
-//   // This method calculates can circle make step or kick other circle.
-//   canDoSomehting( X, Y, color) {
-//   return (
-//     this.canKick(X,Y,color) || this.canMakeStep(X,Y)
-//   )
-// }
 //
 // newX (chX) {
 //   return ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'][chX];
@@ -153,7 +110,6 @@
 //
 //     if (this.state.whoTurn === 'userred'){
 //
-//
 //       if (!this.state.select){
 //         if ((isRedInside) && (canDoSomehtingRed)) {
 //           newState.select = true;
@@ -165,8 +121,7 @@
 //           newState.index = redIndex;
 //           newState.x0 = X;
 //           newState.y0 = Y;
-//         }else {alert( "Выберите одну из красных шашек,которая может сделать ход" );}
-//
+//         }
 //       } else if( this.state.select && !(isMadeKick)) {
 //           if (isBlack && !(isBlueInside) && !(isRedInside)){
 //
@@ -240,18 +195,9 @@
 //                   }
 //                 }
 //               }
-//             }else if ((!oneStep) && (!oneKick)) {
-//               alert( "Ваша шашка не может сделать этот ход. Шашка может ходить на 1 ход или бить шашку противника" )}
-//
-//           } else if (!isBlack) {
-//             alert( "Вы выбрали белую клетку. Так не по правилам, выберите черную" )
-//           } else if (isBlueInside) {
-//             alert( "Вы выбрали клетку, занятую синей шашкой. Вы же понимаете, что сюда нельзя перенести красную" )
-//           } else if (isRedInside) {
-//             alert( "Вы выбрали клетку, занятую своей красной шашкой. Неужели вы хотите поместить их в одну клетку? " )
+//             }
 //           }
 //         }
-//
 //   } else {
 //     if (!this.state.select){
 //       if ((isBlueInside) && (canDoSomehtingBlue)) {
@@ -262,7 +208,7 @@
 //         newState.index = blueIndex;
 //         newState.x0 = X;
 //         newState.y0 = Y;
-//       }else {alert( "Выберите одну из синих шашек, которая может сделать ход" );}
+//       }
 //     } else if( this.state.select && !(isMadeKick)) {
 //         if (isBlack && !(isBlueInside) && !(isRedInside)){
 //
@@ -330,7 +276,44 @@
 //                 }
 //               }
 //             }
-//           } else if ((!oneStep) && (!oneKick)) {
+//           }
+//         }
+//
+//   this.setState(newState);
+// }
+//
+// notifier() {
+//   if (this.state.whoTurn === 'userred'){
+//     if (!this.state.select){
+//       if ((isRedInside) && (canDoSomehtingRed)) {
+//
+//       } else {
+//         alert( "Выберите одну из красных шашек,которая может сделать ход" );
+//       }
+//
+//     } else if( this.state.select && !(isMadeKick)) {
+//         if (isBlack && !(isBlueInside) && !(isRedInside)){
+//           console.log("is black " + isBlack);
+//           if (oneStep) {
+//             console.log("is one step " + oneStep);
+//           }
+//
+//            if (oneKick) {
+//             console.log("is one kick " + oneKick);
+//
+//
+//             if (this.canKick(newState.x0, newState.y0,'red')) {
+//               console.log("is can cick 1" + this.canKick(newState.x0, newState.y0,'red'));
+//
+//               if (this.isInArr( xDel , yDel, this.state.blue)){
+//
+//                 if (this.canKick(newState.x0, newState.y0,'red')) {
+//                   console.log("isMadeKick " + isMadeKick);
+//                 } else {
+//                 }
+//               }
+//             }
+//           }else if ((!oneStep) && (!oneKick)) {
 //             alert( "Ваша шашка не может сделать этот ход. Шашка может ходить на 1 ход или бить шашку противника" )
 //           }
 //         } else if (!isBlack) {
@@ -340,11 +323,48 @@
 //         } else if (isRedInside) {
 //           alert( "Вы выбрали клетку, занятую своей красной шашкой. Неужели вы хотите поместить их в одну клетку? " )
 //         }
+//       }
+// } else {
+//   if (!this.state.select){
+//     if ((isBlueInside) && (canDoSomehtingBlue)) {
+//
+//     } else {
+//       alert( "Выберите одну из синих шашек, которая может сделать ход" );
+//     }
+//   } else if( this.state.select && !(isMadeKick)) {
+//       if (isBlack && !(isBlueInside) && !(isRedInside)){
+//
+//         console.log("is black" + isBlack);
+//         if (oneStep) {
+//           console.log("is one step " + oneStep);
 //
 //
-//   this.setState(newState);
+//         } if (oneKick) {
+//           console.log("is one kick " + oneKick);
+//           if (this.canKick(newState.x0, newState.y0,'blue')) {
+//             console.log("is can cick 1" + this.canKick(newState.x0, newState.y0,'blue'));
+//
+//
+//             if (this.isInArr( xDel , yDel, this.state.red)){
+//
+//               if (this.canKick(newState.x0, newState.y0,'blue')) {
+//                 console.log("isMadeKick " + isMadeKick);
+//               } else {
+//
+//               }
+//             }
+//           }
+//         } else if ((!oneStep) && (!oneKick)) {
+//           alert( "Ваша шашка не может сделать этот ход. Шашка может ходить на 1 ход или бить шашку противника" )
+//         }
+//       } else if (!isBlack) {
+//         alert( "Вы выбрали белую клетку. Так не по правилам, выберите черную" )
+//       } else if (isBlueInside) {
+//         alert( "Вы выбрали клетку, занятую синей шашкой. Вы же понимаете, что сюда нельзя перенести красную" )
+//       } else if (isRedInside) {
+//         alert( "Вы выбрали клетку, занятую своей красной шашкой. Неужели вы хотите поместить их в одну клетку? " )
+//       }
 // }
-//
 //
 // render() {
 //

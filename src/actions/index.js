@@ -1,6 +1,7 @@
-// export function selectBook (book) {
+// import { CHANGE_SELECT } from './types';
+// export function select(isSelected) {
 //   return {
-//     type: 'BOOK_SELECTED',
-//     payload: book
-//   }
+//     type: CHANGE_SELECT,
+//     payload: isSelected
+//   };
 // }

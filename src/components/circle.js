@@ -1,22 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class Circle extends Component {
-  constructor() {
-    super(...arguments)
-    this.state = { isSelected: false }
-  }
-
-  onClick() {
-    this.setState({ isSelected: !this.state.isSelected })
-  }
-
   render() {
     const { color } = this.props;
     const colorName = color ? 'circle-red' : 'circle-blue';
-    const selectedClass = this.state.isSelected ? 'selected' : '';
+    const selectedClass = this.props.isSelected ? 'selected' : '';
 
     return <span className={`${colorName} ${selectedClass}`}
-                 onClick={this.onClick.bind(this)}>
+                //  onClick={this.props.onClick(this)}
+                >
 
     </span>;
 
@@ -24,5 +16,7 @@ export default class Circle extends Component {
 }
 
 Circle.propTypes = {
- color: PropTypes.bool
+  // onClick: PropTypes.func,
+  isSelected: PropTypes.bool,
+  color: PropTypes.bool
 };
