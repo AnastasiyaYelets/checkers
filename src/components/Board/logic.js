@@ -14,8 +14,8 @@ export const prepareBoard = () => {
     red, blue, yellow,
     whoTurn:'userred',
     select:false,
-    steparrayred:[],
-    steparrayblue:[],
-    selectred:false
+    stepArrayRed :[],
+    stepArrayBlue:[],
+    alertList:[],
   }
 }

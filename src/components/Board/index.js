@@ -1,4 +1,4 @@
-import { renderLogger, renderSquares } from './render';
+import { renderLogger, renderSquares,renderAlert } from './render';
 import { prepareBoard } from './logic'
 import { handleSquareClick } from './actions'
 import React, { Component, PropTypes } from 'react';
@@ -23,6 +23,7 @@ export default class Board extends Component {
       <div>
         {renderSquares(this.state, this.handleSquareClick.bind(this))}
         {renderLogger(this.state)}
+        {renderAlert(this.state)}
       </div>
     );
   }
