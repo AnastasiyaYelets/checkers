@@ -9,10 +9,10 @@ const checkKickDirection = (mult1, mult2, inverseColor, X, Y, oldState) => {
     isInArr(X + (1 * mult1), Y + (1 * mult2), oldState[inverseColor])
   && !isInArr(X + (2 * mult1), Y + (2 * mult2), oldState.blue)
   && !isInArr(X + (2 * mult1), Y + (2 * mult2), oldState.red)
-  && X + (2 * mult1) < 8
-  && Y + (2 * mult2) < 8
-  && X + (2 * mult1) > 0
-  && Y + (2 * mult2) > 0)
+  && X + (2 * mult1) <= 8
+  && Y + (2 * mult2) <= 8
+  && X + (2 * mult1) >= 0
+  && Y + (2 * mult2) >= 0)
   console.log( isInArr(X + (1 * mult1), Y + (1 * mult2)), oldState[inverseColor],mult1, mult2, inverseColor,
   !isInArr(X + (2 * mult1), Y + (2 * mult2), oldState.blue),mult1, mult2, blue,
   !isInArr(X + (2 * mult1), Y + (2 * mult2), oldState.red),mult1, mult2, red)
@@ -139,9 +139,7 @@ const processTurn = (color, X, Y, oldState, newState) => {
         canMakeAnotherKick = false;
         newState.select = false;
         changeSelection([], newState);
-        newState.whoTurn = color === 'red'
-        ? 'userblue'
-        : 'userred';
+        newState.whoTurn = color === 'red'  ? 'userblue'  : 'userred';
       }
     }
   } else if (newState.select && canMakeAnotherKick && isRightSquare && oneKick) {
@@ -195,7 +193,7 @@ const processTurn = (color, X, Y, oldState, newState) => {
         alertList=[ "Выбранная вами шашка может бить еще раз за этот ход" ]
 
       }if (newState.select && canMakeAnotherKick && !isRightSquare) {
-        alertList=[ "Вы же уже знаете, как бить по правилам. Покажите это всем прямо сейчас" ]
+      alertList=[ "Вы же уже знаете, как бить по правилам. Покажите это всем прямо сейчас" ]
       }
 
       newState.alertList=alertList;

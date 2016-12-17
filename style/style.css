@@ -1,6 +1,7 @@
 .container{
-	height: 500px;
-	weight: 500px;
+	height: 580px;
+	weight: 800px;
+	background: #FAEBD7;
 }
 .circle-red{
 	border-radius: 50%;
@@ -11,7 +12,7 @@
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: auto;;
+	margin-top: auto;
 }
 .circle-blue{
 	border-radius: 50%;
@@ -24,7 +25,47 @@
 	margin-right: auto;
 	margin-top: auto;
 }
-
 .selected {
 	background-color: yellow;
+}
+
+.logger {
+width: 380px;
+float: left;
+margin: 8px
+
+}
+.loggerStep {
+width: 180px;
+float: left;
+margin: 5px
+}
+.renderSquare {
+width: 496px;
+height: 496px;
+display: flex;
+flex-wrap: wrap;
+border: 1px solid black;
+float: left;
+box-shadow: 10px 10px 5px rgba(0,0,0,0.6);
+-moz-box-shadow: 10px 10px 5px rgba(0,0,0,0.6);
+-webkit-box-shadow: 10px 10px 5px rgba(0,0,0,0.6);
+-o-box-shadow: 10px 10px 5px rgba(0,0,0,0.6);
+margin: 5px
+}
+.circle{
+	margin: auto;
+	width: 50px;
+	padding-top: 5px;
+}
+
+.blackSquare{
+	background-color: black;
+	width: 62px;
+	height: 62px;
+}
+.whiteSquare{
+	background-color: white;
+	width: 62px;
+	height: 62px;
 }

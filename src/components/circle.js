@@ -6,17 +6,14 @@ export default class Circle extends Component {
     const colorName = color ? 'circle-red' : 'circle-blue';
     const selectedClass = this.props.isSelected ? 'selected' : '';
 
-    return <span className={`${colorName} ${selectedClass}`}
-                //  onClick={this.props.onClick(this)}
-                >
-
-    </span>;
-
-  }
+    return(
+      <div className = "circle" >
+      <span className={`${colorName} ${selectedClass}`}> </span>
+      </div>
+      )
+    }
 }
-
 Circle.propTypes = {
-  // onClick: PropTypes.func,
   isSelected: PropTypes.bool,
   color: PropTypes.bool
 };
