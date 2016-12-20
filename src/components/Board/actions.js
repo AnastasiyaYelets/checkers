@@ -28,7 +28,11 @@ const checkKickDirection = (mult1, mult2, inverseColor, X, Y, oldState) => {
   };
 
   const checkStepDirection = (mult1, mult2, X, Y, oldState) => {
-    return (!(isInArr(X + (mult1), Y + (mult2), oldState.blue)) && !(isInArr(X + (mult1), Y + (mult2), oldState.red)))
+    return (!(isInArr(X + (mult1), Y + (mult2), oldState.blue)) && !(isInArr(X + (mult1), Y + (mult2), oldState.red))
+    && X +  (mult1) <= 7
+    && Y + (mult2) <= 7
+    && X + (mult1) >= 0
+    && Y + (mult2) >= 0)
   };
 
   const canMakeStep = (X, Y, oldState) => {
