@@ -39,16 +39,17 @@ let turn = state.whoTurn === "userred" ? 'красных' : 'синих';
       <h2> Ход:   {turn} </h2>
       <div className ="loggerStep" >
         <h4> Красных шашек: {state.red.length}</h4>
-        <div> Ходы красных:  {state.stepArrayRed.map(value => <li key={state.stepArrayRed.indexOf(value)}> {value} </li> )}</div>
+        <div> Ходы красных:  {state.stepArrayRed.map(valuer => <li key={valuer.toString()}> {valuer} </li> )}</div>
       </div>
 
       <div className ="loggerStep" >
         <h4> Синих шашек: {state.blue.length}</h4>
-        <div> Ходы синих:  {state.stepArrayBlue.map(value => <li key={state.stepArrayBlue.indexOf(value)}> {value} </li> )}</div>
+        <div> Ходы синих:  {state.stepArrayBlue.map(valueb => <li key={valueb.toString()}> {valueb} </li> )}</div>
       </div>
     </div>
   )
 }
+{/* <li key={state.stepArrayBlue.indexOf(valueb)}> {valueb} </li> )}</div/> */}
 export const renderSquares = (state, handleSquareClick) => {
   const squares = [];
 
